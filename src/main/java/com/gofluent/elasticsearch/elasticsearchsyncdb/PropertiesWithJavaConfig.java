@@ -27,9 +27,6 @@ public class PropertiesWithJavaConfig {
     @Value("${queue.title.consume}")
     private String QUEUE_LISTEN;
 
-    @Value("${queue.title.produce}")
-    private String QUEUE_SEND;
-
     @Autowired
     MessageReceiver messageReceiver;
 
@@ -57,14 +54,6 @@ public class PropertiesWithJavaConfig {
         container.setMessageListener(messageReceiver);
         container.setSessionTransacted(true);
         return container;
-    }
-
-    @Bean
-    public JmsTemplate jmsTemplate(){
-        JmsTemplate template = new JmsTemplate();
-        template.setConnectionFactory(connectionFactory());
-        template.setDefaultDestinationName(QUEUE_SEND);
-        return template;
     }
 
     @Bean

@@ -4,4 +4,5 @@ import com.gofluent.elasticsearch.elasticsearchsyncdb.model.SearchObject;
 
 public interface SearchObjectService {
     void save(SearchObject searchObject);
+    SearchObject findById(String id);
 }

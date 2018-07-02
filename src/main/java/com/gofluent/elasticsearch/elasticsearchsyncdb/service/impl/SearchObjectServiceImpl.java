@@ -17,4 +17,9 @@ public class SearchObjectServiceImpl implements SearchObjectService {
     public void save(SearchObject searchObject) {
         searchObjectRepository.save(searchObject);
     }
+
+    @Override
+    public SearchObject findById(String id) {
+        return searchObjectRepository.findById(id);
+    }
 }

@@ -20,6 +20,7 @@ public class SearchController {
 
     @GetMapping(value = "/save")
     public ResponseEntity<String> save(@RequestParam Map<String, Object> jsonString) throws IOException {
+        System.out.println("CALLED");
         SearchObject searchObject = new SearchObject();
         searchObject.setId(jsonString.get("id") + "");
         searchObject.setType(String.valueOf(jsonString.get("type")));
@@ -28,5 +29,11 @@ public class SearchController {
         searchObject.setReturnId(String.valueOf(jsonString.get("returnid")));
         searchObjectService.save(searchObject);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/findbyid/{id}")
+    public String findById(@PathVariable String id) {
+        SearchObject searchObject = searchObjectService.findById(id);
+        return searchObject.getKeyword();
     }
 }
