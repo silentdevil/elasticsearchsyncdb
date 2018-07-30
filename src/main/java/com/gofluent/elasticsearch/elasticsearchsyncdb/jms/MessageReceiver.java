@@ -1,8 +1,7 @@
 package com.gofluent.elasticsearch.elasticsearchsyncdb.jms;
 
-
-import com.gofluent.elasticsearch.elasticsearchsyncdb.model.SearchObject;
 import com.gofluent.elasticsearch.elasticsearchsyncdb.service.SearchObjectService;
+import com.gofluent.elasticsearch.model.SearchObject;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +27,6 @@ public class MessageReceiver implements MessageListener {
     @Autowired
     private Gson gson;
 
-    @Autowired
-    KafkaProducer producer;
-
     @Override
     public void onMessage(Message message) {
         try {
@@ -44,7 +40,6 @@ public class MessageReceiver implements MessageListener {
             searchObject.setReturnId(map.get("returnid"));
             searchObject.setType(map.get("type"));
            searchObjectService.save(searchObject);
-           producer.send(response);
         } catch (JMSException e) {
             e.printStackTrace();
         }

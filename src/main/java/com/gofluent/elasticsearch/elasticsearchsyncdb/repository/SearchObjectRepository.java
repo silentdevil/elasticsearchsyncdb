@@ -1,8 +1,8 @@
 package com.gofluent.elasticsearch.elasticsearchsyncdb.repository;
 
-import com.gofluent.elasticsearch.elasticsearchsyncdb.model.SearchObject;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.gofluent.elasticsearch.model.SearchObject;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-public interface SearchObjectRepository extends MongoRepository<SearchObject, String> {
+public interface SearchObjectRepository extends ElasticsearchRepository<SearchObject, String> {
     SearchObject findById(String id);
 }

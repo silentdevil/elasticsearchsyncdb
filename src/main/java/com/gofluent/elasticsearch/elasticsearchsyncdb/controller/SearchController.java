@@ -1,9 +1,8 @@
 package com.gofluent.elasticsearch.elasticsearchsyncdb.controller;
 
-import com.gofluent.elasticsearch.elasticsearchsyncdb.model.SearchObject;
 import com.gofluent.elasticsearch.elasticsearchsyncdb.service.SearchObjectService;
+import com.gofluent.elasticsearch.model.SearchObject;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +19,6 @@ public class SearchController {
 
     @GetMapping(value = "/save")
     public ResponseEntity<String> save(@RequestParam Map<String, Object> jsonString) throws IOException {
-        System.out.println("CALLED");
         SearchObject searchObject = new SearchObject();
         searchObject.setId(jsonString.get("id") + "");
         searchObject.setType(String.valueOf(jsonString.get("type")));

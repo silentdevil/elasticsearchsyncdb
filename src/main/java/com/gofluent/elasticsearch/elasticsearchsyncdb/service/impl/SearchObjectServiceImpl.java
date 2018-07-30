@@ -1,9 +1,9 @@
 package com.gofluent.elasticsearch.elasticsearchsyncdb.service.impl;
 
-import com.gofluent.elasticsearch.elasticsearchsyncdb.model.SearchObject;
 
 import com.gofluent.elasticsearch.elasticsearchsyncdb.repository.SearchObjectRepository;
 import com.gofluent.elasticsearch.elasticsearchsyncdb.service.SearchObjectService;
+import com.gofluent.elasticsearch.model.SearchObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
